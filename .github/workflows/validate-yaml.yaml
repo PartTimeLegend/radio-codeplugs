@@ -1,0 +1,22 @@
+name: Validate YAML
+on:
+  push:
+    paths-ignore:
+    - "**.md"
+    - ".mergify.yml"
+    - "LICENSE"
+    branches: [ master ]
+  pull_request:
+    paths-ignore:
+    - "**.md"
+    - "LICENSE"
+    branches: [ master ]
+  workflow_dispatch:
+jobs:
+  build_latex:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Git repository
+        uses: actions/checkout@v4
+      - name: json-yaml-validate
+        uses: GrantBirki/json-yaml-validate@v2.6.0
