@@ -11,6 +11,9 @@ on:
     - "LICENSE"
     branches: [ main ]
   workflow_dispatch:
+permissions:
+  contents: read
+  pull-requests: write # enable write permissions for pull request comments
 jobs:
   validate:
     runs-on: ubuntu-latest
@@ -19,3 +22,6 @@ jobs:
         uses: actions/checkout@v4
       - name: json-yaml-validate
         uses: GrantBirki/json-yaml-validate@v2.6.0
+        with:
+          comment: true
+          github_token: ${{ github.token }}
