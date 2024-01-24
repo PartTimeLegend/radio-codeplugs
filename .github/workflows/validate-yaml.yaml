@@ -3,14 +3,13 @@ on:
   push:
     paths-ignore:
     - "**.md"
-    - ".mergify.yml"
     - "LICENSE"
-    branches: [ master ]
+    branches: [ main ]
   pull_request:
     paths-ignore:
     - "**.md"
     - "LICENSE"
-    branches: [ master ]
+    branches: [ main ]
   workflow_dispatch:
 jobs:
   build_latex:
